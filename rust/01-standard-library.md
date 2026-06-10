@@ -4,18 +4,18 @@ The **standard library** is Rust's built-in toolbox. It is technically a crate n
 
 ## What's inside `std`?
 
-| Module        | What it gives you                                     | Example                                |
-| ------------- | ----------------------------------------------------- | -------------------------------------- |
-| `std::io`     | Input/output: stdin, stdout, files, readers, writers  | `io::stdin()`, `io::BufReader`         |
-| `std::fs`     | Filesystem: read files, create directories            | `fs::read_to_string("foo.txt")`        |
-| `std::collections` | HashMap, HashSet, BTreeMap, VecDeque             | `HashMap::new()`                       |
-| `std::thread` | OS threads                                            | `thread::spawn(...)`                   |
-| `std::sync`   | Mutexes, channels, atomics                            | `Arc<Mutex<T>>`                        |
-| `std::net`    | TCP/UDP sockets                                       | `TcpListener::bind(...)`               |
-| `std::env`    | Environment variables, CLI arguments                  | `env::args()`                          |
-| `std::time`   | Durations, instants                                   | `Instant::now()`                       |
-| `std::string` | The `String` type                                     | `String::from("hi")`                   |
-| `std::vec`    | The `Vec<T>` type                                     | `Vec::new()`                           |
+| Module             | What it gives you                                    | Example                         |
+| ------------------ | ---------------------------------------------------- | ------------------------------- |
+| `std::io`          | Input/output: stdin, stdout, files, readers, writers | `io::stdin()`, `io::BufReader`  |
+| `std::fs`          | Filesystem: read files, create directories           | `fs::read_to_string("foo.txt")` |
+| `std::collections` | HashMap, HashSet, BTreeMap, VecDeque                 | `HashMap::new()`                |
+| `std::thread`      | OS threads                                           | `thread::spawn(...)`            |
+| `std::sync`        | Mutexes, channels, atomics                           | `Arc<Mutex<T>>`                 |
+| `std::net`         | TCP/UDP sockets                                      | `TcpListener::bind(...)`        |
+| `std::env`         | Environment variables, CLI arguments                 | `env::args()`                   |
+| `std::time`        | Durations, instants                                  | `Instant::now()`                |
+| `std::string`      | The `String` type                                    | `String::from("hi")`            |
+| `std::vec`         | The `Vec<T>` type                                    | `Vec::new()`                    |
 
 ## How modules are nested
 

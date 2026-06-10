@@ -31,20 +31,20 @@ That would be unbearable. So Rust ships these inside `std::prelude::v1` and inse
 
 ## What's in it (selected)
 
-| Item                                   | Why it's there                                   |
-| -------------------------------------- | ------------------------------------------------ |
-| `String`, `Vec<T>`, `Box<T>`           | The most-used owned types                        |
-| `Option<T>` with `Some`, `None`        | Nullability                                      |
-| `Result<T, E>` with `Ok`, `Err`        | Error handling                                   |
-| `Iterator`, `IntoIterator`             | So `for x in v` works                            |
-| `Clone`, `Copy`, `Default`             | Common derivable traits                          |
-| `PartialEq`, `Eq`, `PartialOrd`, `Ord` | Comparison                                       |
-| `Debug`                                | So `{:?}` formatting works                       |
-| `From`, `Into`, `TryFrom`, `TryInto`   | Conversions                                      |
-| `Drop`                                 | Destructor trait                                 |
-| `Fn`, `FnMut`, `FnOnce`                | Closure traits                                   |
-| `drop(...)`                            | Free a value early                               |
-| `print!`, `println!`, `eprintln!`, `vec!`, `format!` | Common macros                |
+| Item                                                 | Why it's there             |
+| ---------------------------------------------------- | -------------------------- |
+| `String`, `Vec<T>`, `Box<T>`                         | The most-used owned types  |
+| `Option<T>` with `Some`, `None`                      | Nullability                |
+| `Result<T, E>` with `Ok`, `Err`                      | Error handling             |
+| `Iterator`, `IntoIterator`                           | So `for x in v` works      |
+| `Clone`, `Copy`, `Default`                           | Common derivable traits    |
+| `PartialEq`, `Eq`, `PartialOrd`, `Ord`               | Comparison                 |
+| `Debug`                                              | So `{:?}` formatting works |
+| `From`, `Into`, `TryFrom`, `TryInto`                 | Conversions                |
+| `Drop`                                               | Destructor trait           |
+| `Fn`, `FnMut`, `FnOnce`                              | Closure traits             |
+| `drop(...)`                                          | Free a value early         |
+| `print!`, `println!`, `eprintln!`, `vec!`, `format!` | Common macros              |
 
 > **Note:** `io::stdin` is NOT in the prelude. That's why you write `use std::io;` to get it.
 

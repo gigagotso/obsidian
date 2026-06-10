@@ -1,0 +1,1 @@
+position first column of the pricing page left not in the center, and fix entripze responsiveniss int overflow the box
