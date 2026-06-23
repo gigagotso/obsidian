@@ -8,14 +8,14 @@
 
 **6 production packages are dead weight or near-dead** and should be dropped/migrated-off rather than upgraded:
 
-| Package | Finding | Action | Effort |
-|---|---|---|---|
-| `beyondcode/laravel-websockets` | replaced by Sockudo (already known) | **REMOVE** | trivial |
-| `laravel/ui` | zero usage — no `Auth::routes()`, no scaffolding, no views. API backend doesn't need it | **REMOVE** | trivial |
-| `barryvdh/laravel-translation-manager` | only a dead `config/translation-manager.php`; no routes/models/usage | **REMOVE** | trivial |
-| `eduardokum/laravel-mail-auto-embed` | no mailables, no `@embed`, no references anywhere | **REMOVE** | trivial (and skips the 1→2 Symfony-Mailer rewrite!) |
-| `inspheric/nova-defaultable` | zero usage in any Nova resource | **REMOVE** | trivial |
-| `kutia-software-company/larafirebase` | zero FCM/push usage in code | **REMOVE** | trivial |
+| Package                                | Finding                                                                                 | Action     | Effort                                              |
+| -------------------------------------- | --------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------- |
+| `beyondcode/laravel-websockets`        | replaced by Sockudo (already known)                                                     | **REMOVE** | trivial                                             |
+| `laravel/ui`                           | zero usage — no `Auth::routes()`, no scaffolding, no views. API backend doesn't need it | **REMOVE** | trivial                                             |
+| `barryvdh/laravel-translation-manager` | only a dead `config/translation-manager.php`; no routes/models/usage                    | **REMOVE** | trivial                                             |
+| `eduardokum/laravel-mail-auto-embed`   | no mailables, no `@embed`, no references anywhere                                       | **REMOVE** | trivial (and skips the 1→2 Symfony-Mailer rewrite!) |
+| `inspheric/nova-defaultable`           | zero usage in any Nova resource                                                         | **REMOVE** | trivial                                             |
+| `kutia-software-company/larafirebase`  | zero FCM/push usage in code                                                             | **REMOVE** | trivial                                             |
 
 **Plus dev tools that are genuinely unused** (no code references / no `ray()` calls):
 

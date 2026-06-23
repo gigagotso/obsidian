@@ -1,19 +1,18 @@
 
 
 
-when nested menu is minimized icons are not positioned correctly and fix it 
+
+
+Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
+Component that was made reactive:  {name: 'FilterByStatus', icon: "data:image/svg+xml,%3csvg%20width='16'%20height='1…2929%206.70711Z'%20fill='%235265e8'/%3e%3c/svg%3e", props: {…}, emits: Array(3), setup: ƒ, …} 
+  at <DataGridFilter filters= 
 
 
 
 
+when hovering we need node ids, and when I hover and try to click the options on the hover they dissapera as soon as i try to hover on them we need some kind of delay so I have time to clikc on the rhomous options
 
---------
-chatbot - enabled (0 or 1)
-users -  deleted_at (date)
-ai_source - enabled (0 or 1) , also have status column which represents the state of sync(active,error,sync) and this field is different maybe we can give it a better name
-as_assistants - is_active (0 or 1)
-pbx_flows - enabled ( 0 or 1)
+on the chatbot decisoin option oreding no longer work to order the menu optoins
 
 
-
-tags  - is_archived (0 or 1)
+move delete button next to save for the node form editor and remove delted icon in the top

@@ -130,12 +130,12 @@ pbx-ws        ← no number until needed
 
 Each has trade-offs:
 
-| Style | Length | Sorts past 9? | Reads cleanly | Industry precedent |
-|---|---|---|---|---|
-| `pbx-ws1` | shortest | No (breaks at 10) | Yes | Common in small ops |
-| `pbx-ws01` | medium | Yes (to 99) | Slight blur (`ws01`) | Cloudflare: `lhr01`, `fra02` |
-| `pbx-ws-01` | longest | Yes (to 99) | Cleanest separation | Google SRE examples |
-| `pbx-ws` | shortest | Need rename later | Cleanest | Small-scale startups |
+| Style       | Length   | Sorts past 9?     | Reads cleanly        | Industry precedent           |
+| ----------- | -------- | ----------------- | -------------------- | ---------------------------- |
+| `pbx-ws1`   | shortest | No (breaks at 10) | Yes                  | Common in small ops          |
+| `pbx-ws01`  | medium   | Yes (to 99)       | Slight blur (`ws01`) | Cloudflare: `lhr01`, `fra02` |
+| `pbx-ws-01` | longest  | Yes (to 99)       | Cleanest separation  | Google SRE examples          |
+| `pbx-ws`    | shortest | Need rename later | Cleanest             | Small-scale startups         |
 
 #### How other providers actually name things
 

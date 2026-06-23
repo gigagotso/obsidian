@@ -27,60 +27,60 @@ These packages' *latest* versions silently require **PHP 8.1+** and will break `
 
 ## Per-milestone version pin table (master cheat-sheet)
 
-| Package | Now | L8 (PHP 7.4→8.1) | L9 (PHP 8.0+) | **L10 (PHP 8.2)** |
-|---|---|---|---|---|
-| **laravel/framework** | 7.30 | `^8.0` | `^9.0` | `^10.0` |
-| **laravel/nova** | 3.0.x-dev | `3.31`/`4` | `3.31`/`4` | **`^4` (PAID)** |
-| laravel/cashier | 12.7 | `^13` | `^14` | `^15` |
-| laravel/horizon | 4.3 | `^5` | `^5` | `^5` |
-| laravel/passport | 9.3 | `^10` | `^11` | `^11.5` / `^12` |
-| laravel/telescope | 3.5 | `^5` | `^5` | `^5` |
-| laravel/ui | 2.5 | `^3` | `^4` | `^4.2` |
-| laravel/tinker | 2.4 | `^2.7` | `^2.7` | `^2.7` |
-| laravel/helpers | 1.2 | `^1` | `^1` | `^1` (or drop) |
-| spatie/laravel-medialibrary | 7.19 | `→8→9` | `^10` | `^10` |
-| spatie/laravel-permission | 3.18 | `^5` | `^5` | `^5` / `^6` |
-| spatie/laravel-query-builder | 2.8 | `^4` | `^5.7` | `^5.7` / `^6` |
-| spatie/laravel-schemaless-attributes | 1.7 | `1.8`/`2.3` | `^2.3` | `^2.4` |
-| spatie/laravel-tags | 2.6 | `^3` | `^4` | `^4` |
-| spatie/laravel-webhook-client | 2.7 | `^3` | `^3` | `^3` |
-| spatie/opening-hours | 2.7 | `^3` | `^3` | `^4` (PHP 8.2) |
-| spatie/eloquent-sortable | 3.8 | `^4` (PHP 8) | `^4` | `^4` / `^5` |
-| doctrine/dbal | 2.12 | `^2` | `^2`/`^3` | **`^3`** |
-| guzzlehttp/guzzle | 6.5.8 | `^7.5` | `^7.5` | `^7.5` |
-| guzzlehttp/psr7 | 1.9 | `^2` (via guzzle) | `^2` | `^2` |
-| firebase/php-jwt | 5.2 | `^6.10` | `^7.0` | `^7.0` |
-| tymon/jwt-auth | 1.0.2 | `2.0` (after PHP 8) | `^2.0` | `^2.0` |
-| league/flysystem-aws-s3-v3 | ~1.0 | `~1.0` | **`^3.0`** | `^3.0` |
-| fideloper/proxy | 4.3 | keep | **remove** | — |
-| fruitcake/laravel-cors | 2.0 | keep | **remove** | — |
-| lorisleiva/laravel-actions | 0.3 | `^1.2.2` | `^2.7` | `^2.7` (`^2.10` PHP 8.2) |
-| maatwebsite/excel | 3.1.26 | `^3.1` | `^3.1` | `^3.1` (latest) |
-| mews/purifier | 3.3 | `^3.4` | `^3.4` | `^3.4` |
-| chelout/laravel-relationship-events | 1.2 | `^1` | `^1` | `^2` (PHP 8.1) |
-| staudenmeir/eloquent-json-relations | 1.4 | `1.x` | `1.7` | `1.8` |
-| eduardokum/laravel-mail-auto-embed | 1.0 | `^1` | **`^2`** | `^2` |
-| kutia/larafirebase | 1.0 | `^1.3` | `^1.3` | `^1.3` (dormant) |
-| monicahq/laravel-cloudflare | 1.4 | `^2`/`^3` | `^3` | `^3` |
-| torann/geoip | 1.2 | `^1` | `^3` (after PHP 8) | `^3` |
-| geoip2/geoip2 | 2.10 | `^2` | `^3` (PHP 8.1) | `^3` |
-| aws/aws-sdk-php | 3.300 | cap `<3.350` | float | float |
-| pusher/pusher-php-server | 4.1 | `^7.2` | `^7.2` | `^7.2` |
-| **dev:** facade/ignition | 2.0 | `^2.5` | **spatie/laravel-ignition `^1`** | `^2` |
-| **dev:** nunomaduro/collision | 4.1 | `^5` | `^6` | `^6` |
-| **dev:** phpunit/phpunit | 8.5 | `^9.5` | `^9.5` | `^9.6` (or `^10.1`) |
-| **dev:** mockery/mockery | 1.3 | `^1.6` | `^1.6` | `^1.6` |
-| **dev:** barryvdh/laravel-debugbar | 3.2 | `^3.9` | `^3.9` | `^3.9` |
-| **dev:** barryvdh/laravel-ide-helper | 2.6 | `^2.13` | `^2.13` | `^2.13` |
-| **dev:** fzaninotto/faker | 1.4 | **fakerphp/faker** | — | — |
-| **dev:** beyondcode/laravel-dump-server | 1.0 | `^2.1` or drop | — | — |
-| **dev:** spatie/laravel-ray | 1.43 | `^1` | `^1` | `^1` |
-| **REMOVE NOW:** beyondcode/laravel-websockets | 1.4 | gone (Sockudo) | — | — |
-| **REPLACE:** consoletvs/charts | 6.5 | deprecated → Nova Metrics / Larapex | — | — |
-| **REPLACE:** inspheric/nova-defaultable | 1.2 | → Nova `->default()` | — | — |
-| **REPLACE:** koss-shtukert/...select2 | 1.21 | → Nova `->searchable()` | — | — |
-| dillingham/nova-attach-many | 1.0 | — | — | `^2.0` (Nova 4) |
-| titasgailius/search-relations | 1.0 | — | — | `^2.0` (Nova 4/5) |
+| Package                                       | Now       | L8 (PHP 7.4→8.1)                    | L9 (PHP 8.0+)                    | **L10 (PHP 8.2)**        |
+| --------------------------------------------- | --------- | ----------------------------------- | -------------------------------- | ------------------------ |
+| **laravel/framework**                         | 7.30      | `^8.0`                              | `^9.0`                           | `^10.0`                  |
+| **laravel/nova**                              | 3.0.x-dev | `3.31`/`4`                          | `3.31`/`4`                       | **`^4` (PAID)**          |
+| laravel/cashier                               | 12.7      | `^13`                               | `^14`                            | `^15`                    |
+| laravel/horizon                               | 4.3       | `^5`                                | `^5`                             | `^5`                     |
+| laravel/passport                              | 9.3       | `^10`                               | `^11`                            | `^11.5` / `^12`          |
+| laravel/telescope                             | 3.5       | `^5`                                | `^5`                             | `^5`                     |
+| laravel/ui                                    | 2.5       | `^3`                                | `^4`                             | `^4.2`                   |
+| laravel/tinker                                | 2.4       | `^2.7`                              | `^2.7`                           | `^2.7`                   |
+| laravel/helpers                               | 1.2       | `^1`                                | `^1`                             | `^1` (or drop)           |
+| spatie/laravel-medialibrary                   | 7.19      | `→8→9`                              | `^10`                            | `^10`                    |
+| spatie/laravel-permission                     | 3.18      | `^5`                                | `^5`                             | `^5` / `^6`              |
+| spatie/laravel-query-builder                  | 2.8       | `^4`                                | `^5.7`                           | `^5.7` / `^6`            |
+| spatie/laravel-schemaless-attributes          | 1.7       | `1.8`/`2.3`                         | `^2.3`                           | `^2.4`                   |
+| spatie/laravel-tags                           | 2.6       | `^3`                                | `^4`                             | `^4`                     |
+| spatie/laravel-webhook-client                 | 2.7       | `^3`                                | `^3`                             | `^3`                     |
+| spatie/opening-hours                          | 2.7       | `^3`                                | `^3`                             | `^4` (PHP 8.2)           |
+| spatie/eloquent-sortable                      | 3.8       | `^4` (PHP 8)                        | `^4`                             | `^4` / `^5`              |
+| doctrine/dbal                                 | 2.12      | `^2`                                | `^2`/`^3`                        | **`^3`**                 |
+| guzzlehttp/guzzle                             | 6.5.8     | `^7.5`                              | `^7.5`                           | `^7.5`                   |
+| guzzlehttp/psr7                               | 1.9       | `^2` (via guzzle)                   | `^2`                             | `^2`                     |
+| firebase/php-jwt                              | 5.2       | `^6.10`                             | `^7.0`                           | `^7.0`                   |
+| tymon/jwt-auth                                | 1.0.2     | `2.0` (after PHP 8)                 | `^2.0`                           | `^2.0`                   |
+| league/flysystem-aws-s3-v3                    | ~1.0      | `~1.0`                              | **`^3.0`**                       | `^3.0`                   |
+| fideloper/proxy                               | 4.3       | keep                                | **remove**                       | —                        |
+| fruitcake/laravel-cors                        | 2.0       | keep                                | **remove**                       | —                        |
+| lorisleiva/laravel-actions                    | 0.3       | `^1.2.2`                            | `^2.7`                           | `^2.7` (`^2.10` PHP 8.2) |
+| maatwebsite/excel                             | 3.1.26    | `^3.1`                              | `^3.1`                           | `^3.1` (latest)          |
+| mews/purifier                                 | 3.3       | `^3.4`                              | `^3.4`                           | `^3.4`                   |
+| chelout/laravel-relationship-events           | 1.2       | `^1`                                | `^1`                             | `^2` (PHP 8.1)           |
+| staudenmeir/eloquent-json-relations           | 1.4       | `1.x`                               | `1.7`                            | `1.8`                    |
+| eduardokum/laravel-mail-auto-embed            | 1.0       | `^1`                                | **`^2`**                         | `^2`                     |
+| kutia/larafirebase                            | 1.0       | `^1.3`                              | `^1.3`                           | `^1.3` (dormant)         |
+| monicahq/laravel-cloudflare                   | 1.4       | `^2`/`^3`                           | `^3`                             | `^3`                     |
+| torann/geoip                                  | 1.2       | `^1`                                | `^3` (after PHP 8)               | `^3`                     |
+| geoip2/geoip2                                 | 2.10      | `^2`                                | `^3` (PHP 8.1)                   | `^3`                     |
+| aws/aws-sdk-php                               | 3.300     | cap `<3.350`                        | float                            | float                    |
+| pusher/pusher-php-server                      | 4.1       | `^7.2`                              | `^7.2`                           | `^7.2`                   |
+| **dev:** facade/ignition                      | 2.0       | `^2.5`                              | **spatie/laravel-ignition `^1`** | `^2`                     |
+| **dev:** nunomaduro/collision                 | 4.1       | `^5`                                | `^6`                             | `^6`                     |
+| **dev:** phpunit/phpunit                      | 8.5       | `^9.5`                              | `^9.5`                           | `^9.6` (or `^10.1`)      |
+| **dev:** mockery/mockery                      | 1.3       | `^1.6`                              | `^1.6`                           | `^1.6`                   |
+| **dev:** barryvdh/laravel-debugbar            | 3.2       | `^3.9`                              | `^3.9`                           | `^3.9`                   |
+| **dev:** barryvdh/laravel-ide-helper          | 2.6       | `^2.13`                             | `^2.13`                          | `^2.13`                  |
+| **dev:** fzaninotto/faker                     | 1.4       | **fakerphp/faker**                  | —                                | —                        |
+| **dev:** beyondcode/laravel-dump-server       | 1.0       | `^2.1` or drop                      | —                                | —                        |
+| **dev:** spatie/laravel-ray                   | 1.43      | `^1`                                | `^1`                             | `^1`                     |
+| **REMOVE NOW:** beyondcode/laravel-websockets | 1.4       | gone (Sockudo)                      | —                                | —                        |
+| **REPLACE:** consoletvs/charts                | 6.5       | deprecated → Nova Metrics / Larapex | —                                | —                        |
+| **REPLACE:** inspheric/nova-defaultable       | 1.2       | → Nova `->default()`                | —                                | —                        |
+| **REPLACE:** koss-shtukert/...select2         | 1.21      | → Nova `->searchable()`             | —                                | —                        |
+| dillingham/nova-attach-many                   | 1.0       | —                                   | —                                | `^2.0` (Nova 4)          |
+| titasgailius/search-relations                 | 1.0       | —                                   | —                                | `^2.0` (Nova 4/5)        |
 
 ---
 
