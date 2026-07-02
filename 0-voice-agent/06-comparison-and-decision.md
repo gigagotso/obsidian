@@ -23,20 +23,20 @@ Refactor the model glue into a shared core; thin `LiveKitRoomTransport` (web/rob
 
 ## Matrix
 
-| Criterion | Dir 1: LiveKit + `agent.py` | Dir 2: standalone, no LiveKit | Dir 3: shared core |
-|---|---|---|---|
-| **Brain reuse** (config/RAG/tools/transcripts) | ✅ HTTP | ✅ **HTTP (same)** | ✅ HTTP |
-| **Ears reuse** (audio orchestration) | ✅ `agent.py` as-is | ❌ rebuild (thin w/ STS) | ✅ shared lib |
-| **Turn-taking tuning (KA/RU)** | ✅ already tuned | ⚠️ re-tune or rely on Gemini | ✅ shared, tuned once |
-| **Latency (phone)** | ⚠️ extra SIP↔WebRTC↔SFU hop | ✅ lowest (direct) | ✅ lowest (direct adapter) |
-| **8 kHz handling** | upsampled — *same as Dir 2* | upsampled — *same as Dir 1* | same |
-| **Ops footprint** | + LiveKit server + LiveKit SIP + Redis | only the thin service | only the thin service |
-| **SIP trunking Asterisk↔LiveKit** | ⚠️ required (fiddly) | ✅ none | ✅ none |
-| **Mid-call transfer to human** | OK (SIP transfer) / native (gateway) | ✅ native ARI (swap in bridge) | ✅ native ARI |
-| **Recording** | LiveKit egress | ✅ native node-asterisk-ari | ✅ native |
-| **Multi-party / supervisor-listen** | ✅ room model | ❌ harder (1:1) | ✅ via LiveKit adapter |
-| **Codebases for voice** | 1 (shared w/ web) | 2 (web + phone) | 1 (shared core) |
-| **Time-to-value** | ✅ days | weeks | weeks+ (refactor) |
+| Criterion                                      | Dir 1: LiveKit + `agent.py`            | Dir 2: standalone, no LiveKit | Dir 3: shared core        |
+| ---------------------------------------------- | -------------------------------------- | ----------------------------- | ------------------------- |
+| **Brain reuse** (config/RAG/tools/transcripts) | ✅ HTTP                                 | ✅ **HTTP (same)**             | ✅ HTTP                    |
+| **Ears reuse** (audio orchestration)           | ✅ `agent.py` as-is                     | ❌ rebuild (thin w/ STS)       | ✅ shared lib              |
+| **Turn-taking tuning (KA/RU)**                 | ✅ already tuned                        | ⚠️ re-tune or rely on Gemini  | ✅ shared, tuned once      |
+| **Latency (phone)**                            | ⚠️ extra SIP↔WebRTC↔SFU hop            | ✅ lowest (direct)             | ✅ lowest (direct adapter) |
+| **8 kHz handling**                             | upsampled — *same as Dir 2*            | upsampled — *same as Dir 1*   | same                      |
+| **Ops footprint**                              | + LiveKit server + LiveKit SIP + Redis | only the thin service         | only the thin service     |
+| **SIP trunking Asterisk↔LiveKit**              | ⚠️ required (fiddly)                   | ✅ none                        | ✅ none                    |
+| **Mid-call transfer to human**                 | OK (SIP transfer) / native (gateway)   | ✅ native ARI (swap in bridge) | ✅ native ARI              |
+| **Recording**                                  | LiveKit egress                         | ✅ native node-asterisk-ari    | ✅ native                  |
+| **Multi-party / supervisor-listen**            | ✅ room model                           | ❌ harder (1:1)                | ✅ via LiveKit adapter     |
+| **Codebases for voice**                        | 1 (shared w/ web)                      | 2 (web + phone)               | 1 (shared core)           |
+| **Time-to-value**                              | ✅ days                                 | weeks                         | weeks+ (refactor)         |
 
 ---
 
@@ -49,7 +49,7 @@ Refactor the model glue into a shared core; thin `LiveKitRoomTransport` (web/rob
 | Escalation to human | via SIP transfer | ✅ native ARI (swap channel in bridge) |
 | Best for | fast time-to-value, AI-only calls | escalation-heavy flows, max control |
 
-And if Direction 2 is ever chosen, pick between [[02-asterisk-audio-integration-options#Option A — AudioSocket|AudioSocket]] (simple TCP, AVR-style) and [[02-asterisk-audio-integration-options#Option B — ARI ExternalMedia|ARI ExternalMedia]] (AVA-style, fits our ARI engine better).
+And if Direction 2 is chosen, the transport sub-choice is settled in [[12-ava-transport-compatibility-learnings]]: **ARI-orchestrated AudioSocket framing** (via `externalMedia` + `encapsulation: audiosocket`, or an ARI-originated `AudioSocket/…` channel) as primary — ARI bridge control *and* the TCP wire AVA validated for full-agent streaming — with [[02-asterisk-audio-integration-options#Option B — ARI ExternalMedia|ExternalMedia RTP]] as fallback.
 
 ---
 
@@ -67,6 +67,13 @@ Two research findings moved the needle since the first draft:
 - **Gemini is PCM-only** (16 k in / 24 k out) and **~5–6× cheaper** on audio tokens, but acoustic-VAD-only and weaker at tool calling on native-audio. Gemini-direct (2a) therefore owns resampling + turn-tuning; Gemini-via-LiveKit (Dir 1) hides both inside LiveKit.
 
 Net: the engine and the transport are **independent choices**. Gemini+LiveKit (least new code), Gemini-direct (cheapest), and OpenAI-direct (least telephony plumbing) are all coherent — keep `agent-config` provider-agnostic to hold all three open.
+
+**3. The Direction-2 transport sub-choice is now settled** ([[12-ava-transport-compatibility-learnings]], from AVA's Jan-2026 Transport-Mode-Compatibility doc):
+- AVA's only field-validated cell for **full-agent/STS** (our architecture) is **AudioSocket + streaming playback**; ExternalMedia RTP was validated only with pipeline + *file* playback, which requires a shared filesystem on remote splits and caused their months-long feedback-gating saga.
+- Our earlier "ExternalMedia because ARI-native" lean conflated orchestration with wire framing: `externalMedia` with `encapsulation: audiosocket` (or an ARI-originated `AudioSocket/…` channel) keeps the media leg a bridge channel — escalation/recording native — with TCP framing on the wire.
+- **Call: ARI-orchestrated AudioSocket framing, TTS streamed back over the same channel (never file/Announcer playback); ExternalMedia RTP kept as fallback.**
+
+**4. Provider decision (Jul 2026): Direction 2a — Gemini-direct.** OpenAI Realtime was evaluated and ruled out. The phone agent uses **Gemini Live, the same engine as docker-rtc**; the assistant is enabled/assigned at the **trunk channel-line** level and routed via `AIAgentAction`. Accepted costs: the gateway owns resampling (16 k in / 24 k out) and turn-taking rests on Gemini's built-in VAD, with the [[07-vad-and-turn-taking]] detector port as contingency. Won: `agent-config` reused as-is (already Gemini-shaped), one provider everywhere, ~5–6× cheaper audio tokens.
 
 ---
 

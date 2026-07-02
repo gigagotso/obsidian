@@ -148,8 +148,10 @@ AVR is general-purpose, plug-and-play OSS, and AudioSocket fits that goal:
 
 Trade-off accepted: TCP's realtime weaknesses + manual timing, worth it for the simplicity.
 
-### Why *we* would lean the other way (ExternalMedia)
+### Why *we* would lean the other way (ExternalMedia) — **superseded, see below**
 `node-asterisk-ari` is already an **ARI bridge engine**, and we want **mid-call escalation to a human queue** (swap a channel in a live bridge — exactly what `QueueAction` does). That makes **ExternalMedia the natural fit for us** — the *opposite* of AVR's calculus. This is why [[05-implementation-plan]] Option D uses ExternalMedia rather than AudioSocket.
+
+> ⚠️ **Revision (Jul 2026, [[12-ava-transport-compatibility-learnings]]):** the paragraph above conflated two axes. "ARI-native" is about **who orchestrates** (Stasis → bridge → channel), not **what frames the wire**. `POST /channels/externalMedia` accepts `encapsulation: "audiosocket"` (Asterisk 18+), and ARI can also originate a `AudioSocket/…` channel into the bridge — either way the media leg is a real bridge channel (escalation/recording/snoop native) with TCP AudioSocket framing on the wire. AVA's field validation (their Transport-Mode-Compatibility doc) shows AudioSocket + full-agent + **streaming** is the battle-tested cell for our STS architecture, while ExternalMedia RTP was only ever validated with pipeline + *file* playback (which needs a shared FS and caused their gating/feedback saga). **Our call: ARI-orchestrated AudioSocket framing primary, ExternalMedia RTP fallback.**
 
 ---
 

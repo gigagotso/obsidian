@@ -4,53 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "0f65b919a74a1849",
+        "id": "e319132355e39339",
         "type": "tabs",
         "children": [
           {
-            "id": "3ace41dcc5bf3718",
+            "id": "feb5ce7e4f2cd8c9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ucnauri.md",
+                "file": "0-voice-agent/12-ava-transport-compatibility-learnings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ucnauri"
+              "title": "12-ava-transport-compatibility-learnings"
             }
           },
           {
-            "id": "32510e3bbc300efc",
+            "id": "0e4b511169c82d0a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-voice-agent/01-current-architecture.md",
+                "file": "0-code-review/ჩენელების ბექფილი.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-current-architecture"
-            }
-          },
-          {
-            "id": "9672a11185e1da17",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-livecaller-develop-tasks/10-app-translation/ui-i18n-plan.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ui-i18n-plan"
+              "title": "ჩენელების ბექფილი"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,46 +197,48 @@
       "bases:Create new base": false
     }
   },
-  "active": "3bae07e90a05a850",
+  "active": "feb5ce7e4f2cd8c9",
   "lastOpenFiles": [
-    "1-livecaller-develop-tasks/0-others/conversation-reports-permissions-report.md",
-    "1-livecaller-develop-tasks/0-others/missing-conversation-reports-report.md",
-    "1-livecaller-develop-tasks/0-others/sip-pbx-config-report.md",
-    "1-livecaller-develop-tasks/0-others/legacy-channel-columns-audit.md",
-    "1-livecaller-develop-tasks/legacy-channel-columns-audit.md",
-    "1-livecaller-develop-tasks/15-visitor-contact-correlation/contact-correlation.md",
-    "1-livecaller-develop-tasks/14-pbx-servers/livecaller-voice-architecture.md",
-    "1-livecaller-develop-tasks/12. Channel Limits/LIMITS-SYSTEM.md",
-    "1-livecaller-develop-tasks/11. Multi Tab session/multi-tab-auto-signout.md",
-    "1-livecaller-develop-tasks/10-app-translation/ui-i18n-plan.md",
-    "1-livecaller-develop-tasks/7-notifications/7. Notifications.md",
-    "1-livecaller-develop-tasks/7-notifications/plan/PLAN.md",
-    "1-livecaller-develop-tasks/0-others/4-outbound-webhooks-architecture.md",
-    "1-livecaller-develop-tasks/0-others/3-api-away-reasons-integrity-violation.md",
-    "1-livecaller-develop-tasks/0-others/2-widget-jwt-auth-garbage-token-failures 1.md",
-    "1-livecaller-develop-tasks/0-others/2-widget-jwt-auth-garbage-token-failures.md",
-    "1-livecaller-develop-tasks/0-others/1-conversation-reports-view-permission-bug.md",
-    "0-voice-agent/00-index.md",
-    "0-update-to-vue3-and-vite/3-update-to-vue3-and-vite.md",
-    "0-code-review/1-change-user-availability-hours-code-review-pr-748.md",
-    "ანალიტიკის სტატუსები.md",
-    "ucnauri.md",
-    "Untitled.md",
-    "2026-06-13-001070.png",
-    "2026-06-12-001045.png",
-    "Untitled",
-    "0-voice-agent/09-standalone-agent-no-livekit.md",
     "0-voice-agent/11-unified-agent-architecture.md",
+    "0-voice-agent/10-realtime-providers.md",
+    "0-voice-agent/09-standalone-agent-no-livekit.md",
     "0-voice-agent/08-noise-cancellation.md",
+    "0-voice-agent/07-vad-and-turn-taking.md",
+    "0-voice-agent/06-comparison-and-decision.md",
+    "0-voice-agent/05-implementation-plan.md",
+    "0-voice-agent/04-reference-ava.md",
+    "0-voice-agent/03-reference-avr.md",
+    "0-voice-agent/02-asterisk-audio-integration-options.md",
+    "0-voice-agent/01-current-architecture.md",
+    "0-voice-agent/00-index.md",
+    "0-voice-agent/12-ava-transport-compatibility-learnings.md",
+    "0-code-review/generateconversationreport.md",
+    "1-livecaller-develop-tasks/0-others/1-conversation-reports-view-permission-bug.md",
+    "0-code-review/ჩენელების ბექფილი.md",
+    "0-update-to-vue3-and-vite/3-update-to-vue3-and-vite.md",
+    "1-livecaller-develop-tasks/13-clamav-antivirus/CLAMAV_IMPLEMENTATION_NO_PACKAGE.md",
+    "1-mobile-app-livecaller.md",
+    "0-code-review/security/security-review-merge-651-661.md",
+    "0-code-review/security/xss-testing-payloads.md",
+    "0-code-review/security/widget-api-endpoints.md",
+    "0-code-review/security/validation-rules-recommendations.md",
+    "0-code-review/security/time-groups-working-hours.md",
+    "0-code-review/security/security-vulnerability-audit.md",
+    "0-code-review/security/security-review-fix-input-sanitation-branch.md",
+    "0-code-review/security/security-audits",
+    "0-code-review/security",
+    "1-mobile-app-livecaller",
+    "2026-06-13-001070.png",
+    "2026-06-26-001292.png",
+    "livecaller",
+    "2026-06-26-001291.png",
+    "2026-06-12-001045.png",
     "0-voice-agent",
     "1-livecaller-develop-tasks/1-update-php.zip",
     "0-public-service-hall",
     "GOS-game-operating-system",
     "0-update-to-vue3-and-vite",
     "1-livecaller-develop-tasks/0-others",
-    "1-livecaller-develop-tasks/16-livecaller-hub-integrations/viber",
-    "1-livecaller-develop-tasks/16-livecaller-hub-integrations/telegram",
-    "1-livecaller-develop-tasks/16-livecaller-hub-integrations/meta",
     "2026-06-04-000910.png",
     "2026-05-30-000805.png"
   ]

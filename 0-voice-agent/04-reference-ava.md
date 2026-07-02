@@ -64,7 +64,7 @@ Built-in telephony tools (all providers): `transfer`, `cancel_transfer`, `hangup
 - **ARI-orchestrated** transport (single Stasis entry; transport by config) — clean separation, easy multi-provider routing. **← the pattern most aligned with `node-asterisk-ari`.**
 - **x86_64 / Linux / systemd only**; no ARM64/macOS/Windows.
 - xAI Grok capped at 30-min sessions. Local LLM throughput modest.
-- ExternalMedia-RTP + pipeline needs shared FS (Announcer-channel file playback) → AudioSocket preferred for remote splits.
+- ExternalMedia-RTP + pipeline needs shared FS (Announcer-channel file playback) → AudioSocket preferred for remote splits. Their `docs/Transport-Mode-Compatibility.md` (Jan 2026) formalizes the validated transport×mode×playback matrix — mined for our own transport decision in [[12-ava-transport-compatibility-learnings]].
 
 ## What we borrow
 

@@ -14,5 +14,13 @@
       ],
       "key": "O"
     }
+  ],
+  "file-explorer:reveal-active-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowDown"
+    }
   ]
 }
